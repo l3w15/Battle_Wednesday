@@ -10,20 +10,15 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    session[:names] = [params[:Player1], params[:Player2]]
-    #
-    # @player1 = params[:Player1]
-    # @player2 = params[:Player2]
-    # session[:names] = [@player1, @player2]
-    p session
-    p session[:names]
+    session[:player1] = { name: params[:Player1], hp: 100 }
+    session[:player2] = { name: params[:Player2], hp: 100 }
+    # session[:names] = [params[:Player1], params[:Player2]]
     redirect '/play'
   end
 
   get '/play' do
-    p session[:names]
-    @player1, @player2 = session[:names]
-    p @player1
+    @player1 = session[:player1]
+    @player2 = session[:player2]
     erb(:play)
   end
 

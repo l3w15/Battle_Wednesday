@@ -3,33 +3,38 @@
   <meta charset=utf-8 />
   <title></title>
   <style>
-    div.container {
+    div.versus_display {
       display: inline-block;
 
       color: coral;
       padding: 10px;
     }
 
-    p {
+    #versus {color: #2E2F30}
+
+    h1, h2 {
       text-align:center;
+      max-width:550px ;
     }
   </style>
 </head>
 
 
 <body>
-  <div class="container">
+  <div class="versus_display">
     <img src="https://orig00.deviantart.net/8d93/f/2016/195/4/3/absol_gijinka_oc__jellaine_pokemon_form__by_sephy90-daa10sh.png" alt="" style="height: 200px">
-    <h1><%=@player1%></h1>
+    <h1><%=@player1[:name]%></h1>
+    <h2><%=@player1[:hp]%> hp </h2>
   </div>
 
-  <div class="container">
+  <div class="versus_display" id="versus">
   <h1> versus </h1>
   </div>
 
-  <div class="container">
+  <div class="versus_display">
     <img src="https://t00.deviantart.net/12ltF6w3huOgUL6Y-bdPV7KG8RQ=/300x200/filters:fixed_height(100,100):origin()/pre00/58a8/th/pre/f/2011/057/c/1/pokemon_eevee_by_bestpokemonmaster-d3agprc.jpg" alt="">
-    <h1><%=@player2%></h1>
+    <h1><%=@player2[:name]%></h1>
+    <h2><%=@player2[:hp]%> hp </h2>
 
   </div>
   <br>
