@@ -3,7 +3,7 @@ require './app'
 feature "checking battle functionality" do
   scenario "battle commences and both players have 100HP" do
     sign_in_and_play
-    expect(page).to have_content 'Estaban' && 'Heisenberg'
+    expect(page).to have_content 'Esteban' && 'Heisenberg'
     expect(page).to have_content '100 hp'
   end
 
