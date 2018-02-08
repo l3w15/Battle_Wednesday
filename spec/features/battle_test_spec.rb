@@ -1,12 +1,15 @@
 require './app'
 
-feature "checking for names and presence of HP" do
+feature "checking battle functionality" do
   scenario "battle commences and both players have 100HP" do
-    visit '/'
-    fill_in('Player1', with: 'Estaban')
-    fill_in('Player2', with: 'Heisenberg')
-    click_button('Submit form')
+    sign_in_and_play
     expect(page).to have_content 'Estaban' && 'Heisenberg'
     expect(page).to have_content '100 hp'
+  end
+
+  scenario "player 1 attacks player 2" do
+    sign_in_and_play
+    click_button "Attack!"
+    expect(page).to have_content 'Esteban attacked Heisenberg'
   end
 end

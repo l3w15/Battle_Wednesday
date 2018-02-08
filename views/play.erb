@@ -11,6 +11,7 @@
     }
 
     #versus {color: #2E2F30}
+    #hide_me {display: none}
 
     h1, h2 {
       text-align:center;
@@ -34,10 +35,25 @@
   <div class="versus_display">
     <img src="https://t00.deviantart.net/12ltF6w3huOgUL6Y-bdPV7KG8RQ=/300x200/filters:fixed_height(100,100):origin()/pre00/58a8/th/pre/f/2011/057/c/1/pokemon_eevee_by_bestpokemonmaster-d3agprc.jpg" alt="">
     <h1><%=@player2[:name]%></h1>
+    <h1><%= @attack %></h1>
     <h2><%=@player2[:hp]%> hp </h2>
 
   </div>
   <br>
   <h1>BATTLE!</h1>
+
+  <form action="/play" method="post">
+    <input id="hide_me" type="text" name="attack">
+    <input type="submit" value="Attack!">
+  </form>
+
+  <% if session[:attack] %>
+    <h1><%= @player1[:name] %> attacked <%= @player2[:name] %></h1>
+  <% end %>
+
+  <h1><%= @attack %></h1>
+
+
+
 </body>
 </html>
